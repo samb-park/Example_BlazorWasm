@@ -1,0 +1,32 @@
+﻿@page "/Navbar/OverlayNavbar"
+
+<MudButton Class="fixed-top"  OnClick="OpenOverlay">
+	<MudGrid Spacing="0" Justify="Justify.FlexStart" Style="width:25px">
+		<MudItem xs="12" Class="bg-dark mb-1" Style="height:3px;"></MudItem>
+		<MudItem xs="12" Class="bg-dark mb-1" Style="height:3px;"></MudItem>
+		<MudItem xs="3" Class="bg-dark mb-1" Style="height:3px;"></MudItem>
+		<MudItem xs="3" Class="bg-transparent" Style="height:3px;"></MudItem>
+		<MudItem xs="6" Class="bg-dark mb-1" Style="height:3px;"></MudItem>
+	</MudGrid>
+</MudButton>
+
+
+<MudOverlay Class="bg-warning" @bind-Visible="isVisible" >
+	<MudList Clickable="true">
+		<MudListItem Class="flex-column">
+			<MudLink>About</MudLink>
+			<MudLink>Project</MudLink>
+			<MudLink>Works</MudLink>
+
+		</MudListItem>
+	</MudList>
+</MudOverlay>
+@code {
+	private bool isVisible = false;
+
+	public void OpenOverlay()
+	{
+		isVisible = !isVisible;
+		StateHasChanged();
+	}
+}

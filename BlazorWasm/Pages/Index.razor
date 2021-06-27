@@ -1,7 +1,32 @@
 ﻿@page "/"
 
-<h1>Hello, world!</h1>
+<MudList Clickable="true">
+	<MudListSubheader>
+		Blazor Pratice
+	</MudListSubheader>
+	<MudListItem Text="NavBar" InitiallyExpanded="false">
+		<NestedList>
+			<MudListItem>
+				<NavLink href="Navbar/OverlayNavbar">OverrayNavBar</NavLink>
+			</MudListItem>
+		</NestedList>
+	</MudListItem>
+	<MudListItem Text="Icon" InitiallyExpanded="false">
+		<NestedList>
+			<MudListItem>
+				<NavLink href="Icon/HamburgerMenu1">Hamburger1</NavLink>
+			</MudListItem>
+		</NestedList>
+	</MudListItem>
+</MudList>
 
-Welcome to your new app.
+@code {
+	private bool collapseNavMenu = true;
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+	private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+	private void ToggleNavMenu()
+	{
+		collapseNavMenu = !collapseNavMenu;
+	}
+}
